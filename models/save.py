@@ -4,7 +4,7 @@
 from models import audio2text
 import os
 
-def save_transcription_to_file(audio_file_path: str, output_filename: str, output_dir: str = "outputs") -> None:
+def save_transcription_to_file(audio_file_path: str, output_filename: str, output_dir: str = "../outputs") -> None:
     """
     指定された音声ファイルを文字起こしした結果を指定されたフォルダ内のテキストファイルに保存する
 
