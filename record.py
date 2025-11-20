@@ -20,7 +20,7 @@ def record_audio(output_filename: str, record_seconds: int = 10) -> None:
         print(f"{record_seconds}秒間、マイクからの録音を開始します...")
         (
             ffmpeg
-            .input(':0', format='avfoundation', t=record_seconds) # macOSの例
+            .input(':0', format='avfoundation', t=record_seconds)
             .output(output_filename, acodec='pcm_s16le', ar='44100', ac=1)
             .run(overwrite_output=True)
         )
