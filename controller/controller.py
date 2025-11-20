@@ -1,8 +1,8 @@
 # controller.py
 
-import record
-import audio2text
-import save
+from models import record
+from models import audio2text
+from models import save
 
 
 class AudioController:

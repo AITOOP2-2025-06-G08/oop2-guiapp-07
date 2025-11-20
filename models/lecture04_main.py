@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 
-import record
-import save
+from models import record
+from models import save
 import os
 
 if __name__ == "__main__":

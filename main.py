@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QApplication
 
 # 各モジュールのインポート
 from window.gui_main import MainWindow
-from controller import AudioController
+from controller.controller import AudioController
 
 # ※ 注意: 実行するには record.py, audio2text.py, save.py が存在する必要があります。
 # テスト用にダミーが必要な場合は、空のファイルを作成してください。

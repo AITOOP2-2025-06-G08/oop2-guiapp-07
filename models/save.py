@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import audio2text
+from models import audio2text
 import os
 
 def save_transcription_to_file(audio_file_path: str, output_filename: str) -> None:
