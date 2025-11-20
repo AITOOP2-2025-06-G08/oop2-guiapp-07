@@ -1,0 +1,6 @@
+{
+    "record_seconds": 10,
+    "audio_output": "record_audio_output.wav",
+    "transcription_dir": "transcriptions",
+    "model_name": "whisper-base-mlx"
+  }
