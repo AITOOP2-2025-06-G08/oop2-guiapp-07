@@ -25,6 +25,7 @@ class AudioController:
             self.ui.update_status("録音を開始します...")
             record.record_audio(self.audio_filename, record_seconds=10)
             self.ui.update_status(f"録音完了：{self.audio_filename} に保存しました。")
+            self.ui.enable_transcription_ui()
         except Exception as e:
             self.ui.show_error(f"録音でエラーが発生しました: {str(e)}")
 

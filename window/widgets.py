@@ -112,6 +112,7 @@ class StatusAndResultWidget(QWidget):
     def set_result_text(self, text: str):
         """結果テキストを設定する (リーダーが使用)"""
         self.result_text.setText(text)
+        self.result_text.repaint()
         
     def get_result_text(self) -> str:
         """現在の結果テキストを取得する (リーダー/保存担当が使用)"""

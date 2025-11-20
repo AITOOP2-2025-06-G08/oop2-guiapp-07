@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, Q
 from PySide6.QtCore import Qt
 
 # 作成したコンポーネントをインポート
-from widgets import RecordingSettingsWidget, ProcessAndSaveWidget, StatusAndResultWidget
+from window.widgets import RecordingSettingsWidget, ProcessAndSaveWidget, StatusAndResultWidget
 
 
 class MainWindow(QMainWindow):
@@ -14,6 +14,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("🎤 音声文字起こしアプリ (PySide6)")
         self.setGeometry(100, 100, 800, 600)  # 初期サイズ
+        
 
         # 中央ウィジェットの設定
         central_widget = QWidget()
@@ -46,6 +47,29 @@ class MainWindow(QMainWindow):
         # 例: self.recording_settings.recording_start_requested.connect(self.start_recording)
         # 例: self.process_save.transcribe_requested.connect(self.start_transcription)
         
+    # ==========================================
+    # Controllerから呼び出されるインターフェース
+    # ==========================================
+    
+    def update_status(self, message: str):
+        """ステータスメッセージを更新する"""
+        self.status_result.set_status(message, is_error=False)
+
+    def show_error(self, message: str):
+        """エラーメッセージを表示する"""
+        self.status_result.set_status(message, is_error=True)
+
+    def display_transcription(self, text: str):
+        """文字起こし結果をテキストエリアに表示する"""
+        self.status_result.set_result_text(text)
+        # 文字起こし成功時に、保存ボタンなどを有効化する処理が必要ならここに追加
+        self.process_save.set_processing_enabled(True)
+    
+    def enable_transcription_ui(self):
+        """
+        録音完了後に、文字实况と保存ボタンを有効化する
+        """
+        self.process_save.set_processing_enabled(True)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
